@@ -23,6 +23,11 @@ var allFeeds = [
     }
 ];
 
+// Added feature.  Add a feed to those indexed by our reader.
+function addFeed(newFeed) {
+    allFeeds.push(newFeed);
+}
+
 /* This function starts up our application. The Google Feed
  * Reader API is loaded asynchonously and will then call this
  * function when the API is loaded.
@@ -125,7 +130,7 @@ $(function() {
         return false;
     });
 
-    /* When the menu icon is clicked on, we need to toggle a class
+/* When the menu icon is clicked on, we need to toggle a class
      * on the body to perform the hiding/showing of our menu.
      */
     menuIcon.on('click', function() {

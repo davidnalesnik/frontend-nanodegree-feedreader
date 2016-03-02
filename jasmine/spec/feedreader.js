@@ -2,17 +2,17 @@
  *
  * This is the spec file that Jasmine will read and contains
  * all of the tests that will be run against your application.
-*/
+ */
 
 /* We're placing all of our tests within the $() function,
  * since some of these tests may require DOM elements. We want
  * to ensure they don't run until the DOM is ready.
-*/
+ */
 $(function() {
     /* This is our first test suite - a test suite just contains
      * a related set of tests. This suite is all about the RSS
      * feeds definitions, the allFeeds variable in our application.
-    */
+     */
     describe('RSS Feeds', function() {
         /* This is our first test - it tests to make sure that the
          * allFeeds variable has been defined and that it is not
@@ -20,7 +20,7 @@ $(function() {
          * the rest of this project. What happens when you change
          * allFeeds in app.js to be an empty array and refresh the
          * page?
-        */
+         */
         it('are defined', function() {
             expect(allFeeds).toBeDefined();
             expect(allFeeds.length).not.toBe(0);
@@ -46,6 +46,25 @@ $(function() {
                 expect(elt.name).toBeDefined();
                 expect(elt.name.length).not.toBe(0);
             });
+        });
+
+        /**
+            A feed reader should have the ability to add feeds.  This spec
+            tests this new feature, which I've implemented far enough in app.js
+            to pass.  Ultimately, there would be some sort of user interface
+            for adding feeds calling the function tested here.
+        */
+        it('can be added', function() {
+            expect(addFeed).toBeDefined();
+            var initialLength = allFeeds.length;
+            var newFeed = {
+                name: 'SitePoint CSS',
+                url: 'http://www.sitepoint.com/html-css/feed'
+            };
+            addFeed(newFeed);
+            expect(allFeeds.length).toBe(initialLength + 1);
+            // Put state back to starting point before testing.
+            allFeeds.pop();
         });
     });
 
