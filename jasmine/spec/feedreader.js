@@ -54,7 +54,7 @@ $(function() {
             to pass.  Ultimately, there would be some sort of user interface
             for adding feeds calling the function tested here.
         */
-        it('can be added', function() {
+        it('can be added to allFeeds', function() {
             expect(addFeed).toBeDefined();
             var initialLength = allFeeds.length;
             var newFeed = {
@@ -110,6 +110,21 @@ $(function() {
             var $feedLink = $('.feed-list li:first a');
             $feedLink.trigger('click');
             expect(menuInvisible()).toBe(true);
+        });
+
+        /**
+            Test that added feeds appear in the menu.
+
+            Will fail!
+        */
+        it('contains newly added feed', function() {
+            var newFeed = {
+                name: 'SitePoint CSS',
+                url: 'http://www.sitepoint.com/html-css/feed'
+            };
+            addFeed(newFeed);
+            var lastFeedText = $('.feed-list li:last').text().trim();
+            expect(lastFeedText).toBe(newFeed.name);
         });
     });
 
