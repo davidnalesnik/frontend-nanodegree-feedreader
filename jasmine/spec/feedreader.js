@@ -66,6 +66,22 @@ $(function() {
             // Put state back to starting point before testing.
             allFeeds.pop();
         });
+
+        /**
+            A feed reader should have the ability to remove feeds as well.  This
+            spec tests this new feature, which I've implemented far enough in
+            app.js to pass.
+        */
+        it('can be removed', function() {
+            expect(removeFeed).toBeDefined();
+            var initialLength = allFeeds.length;
+            if (initialLength < 1) throw 'No feeds to remove';
+            var lastFeed = allFeeds[initialLength - 1];
+            removeFeed(initialLength - 1);
+            expect(allFeeds.length).toBe(initialLength - 1);
+            // Put state back to starting point before testing.
+            addFeed(lastFeed);
+        });
     });
 
     describe('The menu', function() {
