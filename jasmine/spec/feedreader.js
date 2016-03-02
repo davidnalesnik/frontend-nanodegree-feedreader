@@ -63,7 +63,7 @@ $(function() {
             };
             addFeed(newFeed);
             expect(allFeeds.length).toBe(initialLength + 1);
-            // Put state back to starting point before testing.
+            // restore pre-test state
             allFeeds.pop();
         });
 
@@ -79,7 +79,7 @@ $(function() {
             var lastFeed = allFeeds[initialLength - 1];
             removeFeed(initialLength - 1);
             expect(allFeeds.length).toBe(initialLength - 1);
-            // Put state back to starting point before testing.
+            // restore pre-test state
             addFeed(lastFeed);
         });
     });
@@ -141,6 +141,23 @@ $(function() {
             addFeed(newFeed);
             var lastFeedText = $('.feed-list li:last').text().trim();
             expect(lastFeedText).toBe(newFeed.name);
+            // restore pre-test state
+            removeFeed(allFeeds.length - 1);
+        });
+
+        /**
+            Test that a removed feed does not appear in the menu.
+
+            Will fail!
+        */
+        it('omits newly removed feed', function() {
+            var allFeedsLength = allFeeds.length;
+            var formerLastFeed = allFeeds[allFeedsLength - 1];
+            removeFeed(allFeedsLength - 1);
+            var lastFeedMenuText = $('.feed-list li:last').text().trim();
+            expect(lastFeedMenuText).not.toBe(formerLastFeed.name);
+            // restore pre-test state
+            addFeed(formerLastFeed);
         });
     });
 
