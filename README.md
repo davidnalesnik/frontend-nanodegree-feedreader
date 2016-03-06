@@ -35,4 +35,4 @@ those included.  Tests of these features have been added, namely:
 
 3. A test that added feeds show up on screen.  This functionality is not implemented and _the test fails_.
 
-4. A test that removed feeds disappear from the onscreen feed menu.  Like the above, this is not yet the case and accordingly, _the test faile_.
+4. A test that removed feeds disappear from the onscreen feed menu.  Like the above, this is not yet the case and accordingly, _the test fails_.
