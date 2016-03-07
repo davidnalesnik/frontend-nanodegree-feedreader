@@ -49,10 +49,12 @@ $(function() {
         });
 
         /**
+            ADDITIONAL TEST
+
             A feed reader should have the ability to add feeds.  This spec
-            tests this new feature, which I've implemented far enough in app.js
-            to pass.  Ultimately, there would be some sort of user interface
-            for adding feeds calling the function tested here.
+            tests an aspect of this new feature (simple modification of the
+            allFeeds array), which I've implemented far enough in js/app.js
+            to pass.
         */
         it('can be added to allFeeds', function() {
             expect(addFeed).toBeDefined();
@@ -68,9 +70,12 @@ $(function() {
         });
 
         /**
+            ADDITIONAL TEST
+
             A feed reader should have the ability to remove feeds as well.  This
-            spec tests this new feature, which I've implemented far enough in
-            app.js to pass.
+            spec tests an aspect of this new feature (removal of an element from
+            the allFeeds array), which I've implemented far enough in js/app.js
+            to pass.
         */
         it('can be removed', function() {
             expect(removeFeed).toBeDefined();
@@ -112,7 +117,7 @@ $(function() {
             // simulate click and check if menu-hidden class bas been removed.
             $icon.trigger('click');
             expect(menuInvisible()).toBe(false);
-            // Another click should add the class back.
+            // Another click should add the class back, restoring the default.
             $icon.trigger('click');
             expect(menuInvisible()).toBe(true);
         });
@@ -129,7 +134,10 @@ $(function() {
         });
 
         /**
-            Test that added feeds appear in the menu.
+            ADDITIONAL TEST: PROJECTED ENHANCEMENT
+
+            Test that added feeds appear in the menu (not simply in
+            the allFeeds array, tested above).
 
             Will fail!
         */
@@ -146,7 +154,10 @@ $(function() {
         });
 
         /**
-            Test that a removed feed does not appear in the menu.
+            ADDITIONAL TEST: PROJECTED ENHANCEMENT
+
+            Test that a removed feed does not appear in the menu (beyond simply
+            being removed from the allFeeds array, tested above).
 
             Will fail!
         */

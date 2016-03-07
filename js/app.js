@@ -23,12 +23,18 @@ var allFeeds = [
     }
 ];
 
-// Added feature.  Add a feed to those indexed by our reader.
+/**
+    The following two functions are added in order that two new specs
+    ("[RSS Feeds] can be added to allFeeds" and "[RSS Feeds] can be removed")
+    will pass.  The implementation is basic.
+*/
+
+// function to add a feed to allFeeds array
 function addFeed(newFeed) {
     allFeeds.push(newFeed);
 }
 
-// Added feature.  Remove a feed from allFeeds by index.
+// function to remove a feed specified by index from allFeeds array
 function removeFeed(idx) {
     allFeeds.splice(idx, 1);
 }
