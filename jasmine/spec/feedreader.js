@@ -132,6 +132,8 @@ $(function() {
         });
 
         /**
+            ADDITIONAL TEST
+
             Test that the menu slides out of view when an element within it
             is clicked.
         */
