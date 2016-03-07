@@ -12,15 +12,23 @@ Open `index.html` in a browser.
 
 Tests run automatically on opening the file, and you will notice onscreen changes as the app's functionality is exercised.  When tests are complete, results are displayed at the bottom of the browser window.
 
-The code for the tests is found in the file `jasmine/spec/feedreader.js`.
+The feedreader itself is easy to use:
+
+* Click on any of the article titles to view the linked article.
+
+* Use the "hamburger icon" at the top left to show/hide a menu listing available feeds.
+
+* Click on a feed in the menu to select it and display its titles.
 
 ## What is tested?
 
-Several test suites are provided in response to items 7 through 13 [here](https://github.com/udacity/frontend-nanodegree-feedreader#how-will-i-complete-this-project) in the project's specifications.  These test the app's current functionality.
+A number of tests are provided in response to [items 7 through 13](https://github.com/udacity/frontend-nanodegree-feedreader#how-will-i-complete-this-project) in the project's specifications.  These validate the app's current functionality.
 
-Additional tests have been added, testing both current functionality and projected enhancements.  These are described in the section below.
+Additional tests have been added, testing both existing functionality and projected enhancements.  These are described in the section below.
 
 All tests of current functionality pass, but tests of planned features fail.
+
+The code for the tests is found in the file `jasmine/spec/feedreader.js`.
 
 ### Additional tests
 
@@ -32,19 +40,19 @@ Tests related to adding and removing feeds are as follows:
 
 1. Ensure that the new function `addFeed` adds a feed to the variable `allFeeds` ("RSS Feeds can be added to allFeeds").
     + functionality has been very simply implemented in `js/app.js`
-    + test passes
+    + _test passes_
 
-2. Ensure that the new function `removeFeed` removes a feed from `allFeeds` ("RSS Feeds can be removed").
+2. Ensure that the new function `removeFeed` removes a feed from `allFeeds` ("RSS Feeds can be removed from allFeeds").
     + functionality has been very simply implemented in `js/app.js`
-    + test passes
+    + _test passes_
 
 3. Ensure that added feeds show up on screen ("The menu contains newly added feed").
     + functionality is not yet implemented
-    + _test fails_
+    + _test **fails**_
 
 4. Ensure that removed feeds disappear from the onscreen feed menu ("The menu omits newly removed feed").
     + functionality is not yet implemented
-    + _test fails_
+    + _test **fails**_
 
 ## References
 

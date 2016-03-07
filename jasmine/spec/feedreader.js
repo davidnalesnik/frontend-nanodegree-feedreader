@@ -66,7 +66,7 @@ $(function() {
             url: 'http://www.sitepoint.com/html-css/feed'
         };
 
-        it('can be added', function() {
+        it('can be added to allFeeds', function() {
             expect(addFeed).toBeDefined();
             var initialLength = allFeeds.length;
             addFeed(newFeed);
