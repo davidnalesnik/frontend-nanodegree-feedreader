@@ -52,40 +52,49 @@ $(function() {
             ADDITIONAL TEST
 
             A feed reader should have the ability to add feeds.  This spec
-            tests an aspect of this new feature (simple modification of the
-            allFeeds array), which I've implemented far enough in js/app.js
-            to pass.
+            tests an aspect of this new feature, which I've implemented far
+            enough in js/app.js to pass.
+
+            Expectations:
+
+            - Does the function addFeed exist?
+            - Does it add an element to the allFeeds array?
+            - Is the added element what we passed to addFeed?
         */
-        it('can be added to allFeeds', function() {
+        var newFeed = {
+            name: 'SitePoint CSS',
+            url: 'http://www.sitepoint.com/html-css/feed'
+        };
+
+        it('can be added', function() {
             expect(addFeed).toBeDefined();
             var initialLength = allFeeds.length;
-            var newFeed = {
-                name: 'SitePoint CSS',
-                url: 'http://www.sitepoint.com/html-css/feed'
-            };
             addFeed(newFeed);
             expect(allFeeds.length).toBe(initialLength + 1);
-            // restore pre-test state
-            allFeeds.pop();
+            // Restore default array as we check identity of added element
+            expect(allFeeds.pop()).toBe(newFeed);
         });
 
         /**
             ADDITIONAL TEST
 
             A feed reader should have the ability to remove feeds as well.  This
-            spec tests an aspect of this new feature (removal of an element from
-            the allFeeds array), which I've implemented far enough in js/app.js
-            to pass.
+            spec tests an aspect of this new feature, which I've implemented far enough in js/app.js to pass.
+
+            Expectations:
+
+            - Does the function removeFeed exist?
+            - Does it remove an added element from the allFeeds array?
         */
-        it('can be removed', function() {
+        it('can be removed from allFeeds', function() {
             expect(removeFeed).toBeDefined();
-            var initialLength = allFeeds.length;
-            if (initialLength < 1) throw 'No feeds to remove';
-            var lastFeed = allFeeds[initialLength - 1];
-            removeFeed(initialLength - 1);
-            expect(allFeeds.length).toBe(initialLength - 1);
-            // restore pre-test state
-            addFeed(lastFeed);
+            // Keep a copy of initial state of allFeeds for later comparison.
+            var originalAllFeeds = allFeeds.slice();
+            // Add a new element to end of allFeeds, then remove it.
+            addFeed(newFeed);
+            removeFeed(allFeeds.length - 1);
+            // We should be back where we started.
+            expect(allFeeds).toEqual(originalAllFeeds);
         });
     });
 
@@ -127,7 +136,7 @@ $(function() {
             is clicked.
         */
         it('is hidden when an element is clicked', function() {
-            $icon.trigger('click');
+            $icon.trigger('click'); // First, make menu appear.
             var $feedLink = $('.feed-list li:first a');
             $feedLink.trigger('click');
             expect(menuInvisible()).toBe(true);
