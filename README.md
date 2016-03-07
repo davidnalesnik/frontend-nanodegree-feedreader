@@ -31,11 +31,11 @@ As provided, the feed reader app does not have a means of adding and removing fe
 Tests related to adding and removing feeds are as follows:
 
 1. Ensure that the new function `addFeed` adds a feed to the variable `allFeeds` ("RSS Feeds can be added to allFeeds").
-    + functionality has been very simply implemented in `js/app.js'
+    + functionality has been very simply implemented in `js/app.js`
     + test passes
 
 2. Ensure that the new function `removeFeed` removes a feed from `allFeeds` ("RSS Feeds can be removed").
-    + functionality has been very simply implemented in `js/app.js'
+    + functionality has been very simply implemented in `js/app.js`
     + test passes
 
 3. Ensure that added feeds show up on screen ("The menu contains newly added feed").
